@@ -46,17 +46,28 @@ public class ProductServiceController {
     //post api
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     public ResponseEntity<Object> createProduct(@RequestBody Product product) {
-        productRepo.put(product.getId(), product);
-        return new ResponseEntity<>("Product is created successfully", HttpStatus.OK);//popup berhasil meng create
+        if (productRepo.containsKey(product.getId())){
+        return new ResponseEntity<>("id already", HttpStatus.OK);
+  
+        }else{
+            productRepo.put(product.getId(), product);
+        return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);//popup berhasil meng create
+            
+        }
     }
     //put api
     @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody
     Product product) {
+        if (!productRepo.containsKey(id)){
+            return new ResponseEntity<>("Id does'not exist", HttpStatus.OK);
+        }
+        else{
         productRepo.remove(id);
         product.setId(id);
         productRepo.put(id, product);//memanggil id dan nama product yg akan di update
         return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);//popup berhasil meng update
+        }
     }
     //delete api
     @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
