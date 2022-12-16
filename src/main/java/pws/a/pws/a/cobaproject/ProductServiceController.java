@@ -23,20 +23,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductServiceController {
     private static Map<String, Product> productRepo = new HashMap<>(); //menggunakan HashMap untuk menyimpan product
     static {
+        
         Product honey = new Product(); //membuat produk baru dan memanggil file Product.java
         honey.setId("1"); //membuat id product
         honey.setName("Honey"); //membuat nama product
-        honey.setPrice(25000);
+        honey.setPrice(25000.0);
         honey.setDiscount(0.03);
-        honey.setTotal();
+        honey.setTotal (honey.getPrice()-(honey.getPrice()*honey.getDiscount()/100));
         productRepo.put(honey.getId(), honey); //memasukkan product ke HashMap
         
         Product almond = new Product();//membuat produk baru dan memanggil file Product.java
         almond.setId("2");//membuat id product
         almond.setName("Almond");//membuat nama product
-        almond.setPrice (20000);
+        almond.setPrice (20000.0);
         almond.setDiscount(0.05);
-        almond.setTotal();
+        almond.setTotal (almond.getPrice()-(almond.getPrice()*almond.getDiscount()/100));
         productRepo.put(almond.getId(), almond);//memasukkan product ke HashMap
         
     }
@@ -52,10 +53,9 @@ public class ProductServiceController {
         return new ResponseEntity<>("id already", HttpStatus.OK);
   
         }else{
+            product.setTotal (product.getPrice()-(product.getPrice()*product.getDiscount()/100));
             productRepo.put(product.getId(), product);
-            product.setTotal();
         return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);//popup berhasil meng create
-            
         }
     }
     //put api
@@ -68,7 +68,7 @@ public class ProductServiceController {
         else{
         productRepo.remove(id);
         product.setId(id);
-        product.setTotal();
+        product.setTotal (product.getPrice()-(product.getPrice()*product.getDiscount()/100));
         productRepo.put(id, product);//memanggil id dan nama product yg akan di update
         return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);//popup berhasil meng update
         }
