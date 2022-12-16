@@ -1,0 +1,11 @@
+digraph "src/main/java/pws/a/pws/a/cobaproject"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_1a15d4941271007659559417cbd7aa4a {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", style="filled,dashed,", label="a", fontname="Helvetica", fontsize="10", URL="dir_1a15d4941271007659559417cbd7aa4a.html"]
+  dir_5f1f34c402aa9912e59c0319c08129b9 [shape=box, label="cobaproject", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_5f1f34c402aa9912e59c0319c08129b9.html"];
+  }
+}

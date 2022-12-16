@@ -11,6 +11,17 @@ package model;
 public class Product {
     private String id;
     private String name;
+    private int price;
+    private Double discount;
+    private Double total;
+
+    public Double getTotal() {
+        return total;
+    }
+    
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 
     public String getId() {
         return id;
@@ -27,5 +38,26 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
+
+    public void setTotal() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
 }

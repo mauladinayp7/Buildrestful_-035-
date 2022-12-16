@@ -1,0 +1,15 @@
+digraph "src/main/java/pws/a"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_21f68ccf0a29806eb94af89d3dbd807d {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", style="filled,dashed,", label="pws", fontname="Helvetica", fontsize="10", URL="dir_21f68ccf0a29806eb94af89d3dbd807d.html"]
+  subgraph clusterdir_57566535419786cb7b600451e8c5a25d {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,bold,", label="", fontname="Helvetica", fontsize="10", URL="dir_57566535419786cb7b600451e8c5a25d.html"]
+    dir_57566535419786cb7b600451e8c5a25d [shape=plaintext, label="a"];
+  dir_754ec188b2ddc968198c2246f92fbb65 [shape=box, label="pws", style="filled,", fillcolor="#a2b4d6", color="grey25", URL="dir_754ec188b2ddc968198c2246f92fbb65.html"];
+  }
+  }
+}

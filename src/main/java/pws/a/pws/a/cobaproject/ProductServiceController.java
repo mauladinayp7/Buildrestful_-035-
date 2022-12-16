@@ -26,17 +26,19 @@ public class ProductServiceController {
         Product honey = new Product(); //membuat produk baru dan memanggil file Product.java
         honey.setId("1"); //membuat id product
         honey.setName("Honey"); //membuat nama product
+        honey.setPrice(25000);
+        honey.setDiscount(0.03);
+        honey.setTotal();
         productRepo.put(honey.getId(), honey); //memasukkan product ke HashMap
         
         Product almond = new Product();//membuat produk baru dan memanggil file Product.java
         almond.setId("2");//membuat id product
         almond.setName("Almond");//membuat nama product
+        almond.setPrice (20000);
+        almond.setDiscount(0.05);
+        almond.setTotal();
         productRepo.put(almond.getId(), almond);//memasukkan product ke HashMap
         
-        Product ginger = new Product();//membuat produk baru dan memanggil file Product.java
-        ginger.setId("3");//membuat id product
-        ginger.setName("Indian Ginger");//membuat nama product
-        productRepo.put( ginger.getId(), ginger);//memasukkan product ke HashMap
     }
     //get api
     @RequestMapping(value = "/products")
@@ -51,6 +53,7 @@ public class ProductServiceController {
   
         }else{
             productRepo.put(product.getId(), product);
+            product.setTotal();
         return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);//popup berhasil meng create
             
         }
@@ -65,6 +68,7 @@ public class ProductServiceController {
         else{
         productRepo.remove(id);
         product.setId(id);
+        product.setTotal();
         productRepo.put(id, product);//memanggil id dan nama product yg akan di update
         return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);//popup berhasil meng update
         }
